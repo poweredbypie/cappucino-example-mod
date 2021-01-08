@@ -1,2 +1,0 @@
-C:\Users\pie\source\cpp\CappuccinoSDK-master\projects\sample-project\bin\Debug\sample-project.dll
-C:\Users\pie\source\cpp\CappuccinoSDK-master\projects\sample-project\bin\Debug\sample-project.pdb
