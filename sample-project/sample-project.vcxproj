@@ -540,6 +540,7 @@
     <ClInclude Include="extern\gd.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="hooks.h" />
+    <ClInclude Include="MyLayer.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
@@ -560,6 +561,7 @@
     <ClCompile Include="cappuccino-sdk\incl\cocos2dx\kazmath\src\vec4.c" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="hooks.cpp" />
+    <ClCompile Include="MyLayer.cpp" />
     <ClCompile Include="pch.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -19,13 +19,16 @@ namespace hooks {
 	}
 
 	namespace MenuLayer {
+		#if 0
 		void init();
+		#endif
+		int __fastcall init(cocos2d::CCLayer*);
 	}
 }
 
 namespace gates {
 	namespace MenuLayer {
-		inline void* init = nullptr;
+		inline int(__thiscall* init)(cocos2d::CCLayer*) = nullptr;
 	}
 }
 

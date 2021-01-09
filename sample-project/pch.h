@@ -11,5 +11,6 @@
 #include "framework.h"
 #include <cocos2d.h>
 #include <MinHook.h>
+#include "extern/gd.h"
 
 #endif //PCH_H

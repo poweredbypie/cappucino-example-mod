@@ -1161,6 +1161,9 @@
     <ClInclude Include="hooks.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MyLayer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -1215,6 +1218,9 @@
       <Filter>Header Files\cocos2d</Filter>
     </ClCompile>
     <ClCompile Include="hooks.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MyLayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
