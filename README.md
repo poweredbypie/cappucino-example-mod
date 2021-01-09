@@ -1,5 +1,5 @@
 # cappucino-example-mod
-Example Cappucino Mod
+Example [Cappucino](https://github.com/andrenih/cappuccinoSDK/) Mod
 
 # actually customizing the mod
 to edit the created scene callback, edit `MyLayer::init` in `MyLayer.cpp`.
