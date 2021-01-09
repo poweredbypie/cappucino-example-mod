@@ -19,9 +19,6 @@ namespace hooks {
 	}
 
 	namespace MenuLayer {
-		#if 0
-		void init();
-		#endif
 		int __fastcall init(cocos2d::CCLayer*);
 	}
 }

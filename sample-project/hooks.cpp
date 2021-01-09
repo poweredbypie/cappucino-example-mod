@@ -2,7 +2,7 @@
 
 #include "hooks.h"
 #include "extern/gd.h"
-#include "MyLayer.h"
+#include "MyLayer/MyLayer.h"
 
 namespace hooks {
 	namespace MenuLayer {

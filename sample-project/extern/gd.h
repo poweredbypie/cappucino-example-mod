@@ -16,6 +16,7 @@ namespace GD {
 			//the actual function here lol
 			auto _create = reinterpret_cast<cocos2d::CCMenuItemSprite*(__thiscall*)
 				(cocos2d::CCSprite*, cocos2d::CCObject*, void*)>(base + 0x18EE0);
+
 			cocos2d::CCMenuItemSprite* pRet = _create(sprite, target, callback);
 			//fix stack
 			__asm {
