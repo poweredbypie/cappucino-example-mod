@@ -46,9 +46,6 @@ namespace hooks {
 			
 			bottomMenu->addChild(myButton);
 			bottomMenu->alignItemsHorizontallyWithPadding(5.0f);
-			//menu->addChild(button);
-
-			//MenuLayer->addChild(bottomMenu);
 
 			return ret;
 		}
