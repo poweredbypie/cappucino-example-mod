@@ -39,13 +39,13 @@ namespace hooks {
 			);
 
 			//move the daily button out of the bottom menu so we can center it easily without using too much hard-to-read assembly
-			auto dailyMenu = CCMenu::createWithItem(dailyButton);
 			bottomMenu->removeChild(dailyButton, false);
-			dailyMenu->setPosition(bottomMenu->getPosition());
-			MenuLayer->addChild(dailyMenu);
 			
 			bottomMenu->addChild(myButton);
 			bottomMenu->alignItemsHorizontallyWithPadding(5.0f);
+
+			//then add it back again LOL
+			bottomMenu->addChild(dailyButton);
 
 			return ret;
 		}
