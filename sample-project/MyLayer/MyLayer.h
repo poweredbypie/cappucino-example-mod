@@ -4,16 +4,17 @@
 using namespace cocos2d;
 using namespace GD;
 
-class MyLayer : public CCScene
+class MyLayer : public CCLayer
 {
 	MyLayer() = default;
-	~MyLayer() = default;
+	virtual ~MyLayer() = default;
 
-	bool init();
+	virtual bool init();
+	virtual void keyBackClicked();
 
 public:
 	static MyLayer* create();
 
-	static void __stdcall returnToMenuLayer(CCObject* pSender);
+	void returnToMenuLayer(CCObject* pSender);
 };
 

@@ -12,10 +12,11 @@ bool MyLayer::init() {
 
 	auto menu = CCMenu::create();
 
-	auto button = ButtonSprite::create(
+	auto button = CCMenuItemSpriteExtra::create(
+		CCSprite::createWithSpriteFrameName("GJ_arrow_01_001.png"),
 		CCSprite::createWithSpriteFrameName("GJ_arrow_01_001.png"),
 		this,
-		&returnToMenuLayer
+		menu_selector(MyLayer::returnToMenuLayer)
 	);
 	button->setPosition((-winSize.width / 2) + 25.0f, (winSize.height / 2) - 25.0f);
 	menu->addChild(button);
@@ -23,20 +24,16 @@ bool MyLayer::init() {
 	addChild(menu);
 	addChild(label);
 
-	auto transition = CCTransitionFade::create(0.5f, this);
-	return director->replaceScene(transition);
+	setKeypadEnabled(true);
+	return true;
 }
 
-void __stdcall MyLayer::returnToMenuLayer(CCObject* pSender) {
-	auto director = CCDirector::sharedDirector();
+void MyLayer::keyBackClicked() {
+	returnToMenuLayer(nullptr);
+}
 
-	auto scene = CCScene::create();
-	auto MenuLayer = CCLayer::create();
-	MenuLayer::init(MenuLayer);
-	scene->addChild(MenuLayer);
-
-	auto transition = CCTransitionFade::create(0.5f, scene);
-	director->replaceScene(transition);
+void MyLayer::returnToMenuLayer(CCObject* pSender) {
+	CCDirector::sharedDirector()->popSceneWithTransition(0.5f, FadeTransition);
 }
 
 MyLayer* MyLayer::create() {

@@ -6,15 +6,18 @@
 
 namespace hooks {
 	namespace MenuLayer {
-		/*make sure the return value, calling convention, and parameters are 
-		* identical to this one!
-		*/
-		void __stdcall callback(cocos2d::CCObject* pSender) {
-			using namespace cocos2d;
+		//hacky but IDC because it IS a hack :/
+		class wrapper {
+		public:
+			void callback(cocos2d::CCObject* pSender) {
+				auto scene = CCScene::create();
+				auto myLayer = MyLayer::create();
+				scene->addChild(myLayer);
 
-			//create function already initializes the new layer, so...
-			auto scene = MyLayer::create();
-		}
+				auto transition = CCTransitionFade::create(0.5f, scene);
+				CCDirector::sharedDirector()->pushScene(transition);
+			}
+		};
 
 		int __fastcall init(cocos2d::CCLayer* MenuLayer) {
 			using namespace cocos2d;
@@ -26,17 +29,26 @@ namespace hooks {
 			//init menulayer first!
 			int ret = gates::MenuLayer::init(MenuLayer);
 
-			auto menu = CCMenu::create();
-
-			auto button = ButtonSprite::create(
-				CCSprite::createWithSpriteFrameName("controllerBtn_LThumb_001.png"),
+			auto bottomMenu = reinterpret_cast<CCMenu*>(MenuLayer->getChildren()->objectAtIndex(3));
+			auto dailyButton = reinterpret_cast<CCMenuItemSpriteExtra*>(bottomMenu->getChildren()->objectAtIndex(4));
+			auto myButton = CCMenuItemSpriteExtra::create(
+				CCSprite::createWithSpriteFrameName("GJ_backBtn_001.png"),
+				CCSprite::createWithSpriteFrameName("GJ_backBtn_001.png"),
 				MenuLayer,
-				callback
+				menu_selector(wrapper::callback)
 			);
-			button->setPosition((-winSize.width / 2) + 25.0f, (-winSize.height / 2) + 90.0f);
-			menu->addChild(button);
 
-			MenuLayer->addChild(menu);
+			//move the daily button out of the bottom menu so we can center it easily without using too much hard-to-read assembly
+			auto dailyMenu = CCMenu::createWithItem(dailyButton);
+			bottomMenu->removeChild(dailyButton, false);
+			dailyMenu->setPosition(bottomMenu->getPosition());
+			MenuLayer->addChild(dailyMenu);
+			
+			bottomMenu->addChild(myButton);
+			bottomMenu->alignItemsHorizontallyWithPadding(5.0f);
+			//menu->addChild(button);
+
+			//MenuLayer->addChild(bottomMenu);
 
 			return ret;
 		}

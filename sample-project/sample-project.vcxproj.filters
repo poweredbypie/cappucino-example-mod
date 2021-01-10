@@ -1161,7 +1161,7 @@
     <ClInclude Include="hooks.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MyLayer.h">
+    <ClInclude Include="MyLayer\MyLayer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -1220,7 +1220,7 @@
     <ClCompile Include="hooks.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MyLayer.cpp">
+    <ClCompile Include="MyLayer\MyLayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
